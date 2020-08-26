@@ -53,6 +53,8 @@ for (int i=0; i<inputs.length; i++) {
 //
 //WebUI.verifyEqual(Gateway_totalvalue, g[2])
 
+
+
 User_name = result[0].name
 
 Users_value = result[0].actual_value
