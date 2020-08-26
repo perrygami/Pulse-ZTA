@@ -14,21 +14,60 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
-import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
-import org.openqa.selenium.By as By
-import org.openqa.selenium.WebDriver as WebDriver
-import org.openqa.selenium.WebElement as WebElement
-import org.junit.After as After
-import org.openqa.selenium.Keys as Keys
-import com.kms.katalon.core.testobject.ConditionType as ConditionType
 import groovy.json.JsonSlurper as JsonSlurper
+import com.kms.katalon.core.testobject.ConditionType as ConditionType
 
 CustomKeywords.'custom_keyword.keywords.login'()
 
 WebUI.delay(2)
-int i
-String json = '/Users/perry.gami/Downloads/config_008.json'
-String css = '#dashboard-l1-anomalies-chart > div:nth-child(2) > svg > g > g:nth-child(2) > g:nth-child(1) > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g > g:nth-child(1) > g:nth-child(2) > g:nth-child(3) > g > g:nth-child(' + (i + 1) + ') > g > g > g > g > g > g > g > g > path'
-String tooltip = '#dashboard-l1-anomalies-chart > div:nth-child(2) > svg > g > g:nth-child(2) > g:nth-child(2) > g > g:nth-child(6) > g:nth-child(2) > g > g > text > tspan'		
-CustomKeywords.'custom_keyword.keywords.data_comparsion'(json,css,tooltip)
+
+def slurper = new JsonSlurper()
+
+File jsontxt = new File('/Users/perry.gami/Downloads/summary_panel.json')
+
+def result = slurper.parse(jsontxt)
+
+Gateway_name = result[0].name
+
+Gateway_value = result[0].actual_value
+
+Gateway_totalvalue = result[0].total_value
+
+UI_gateway = WebUI.getText(findTestObject('Summary Panel/Gateways'))
+
+print(UI_gateway)
+
+inputs = UI_gateway.split(" ");
+
+for (int i=0; i<inputs.length; i++) {
+
+   System.out.println("a[" + i + "] = \"" + inputs[i] + '"');
+
+}
+
+//String[] g = UI_gateway.split(':')
+//
+//WebUI.verifyEqual(Gateway_name, g[0])
+//
+//WebUI.verifyEqual(Gateway_value, g[1])
+//
+//WebUI.verifyEqual(Gateway_totalvalue, g[2])
+
+User_name = result[0].name
+
+Users_value = result[0].actual_value
+
+Users_totalvalue = result[0].total_value
+
+UI_users = WebUI.getText(findTestObject('Summary Panel/Users'))
+
+print(UI_users)
+
+//String[] u = UI_users.split(':')
+//
+//WebUI.verifyEqual(User_name, u[0])
+//
+//WebUI.verifyEqual(Users_value, u[1])
+//
+//WebUI.verifyEqual(Users_totalvalue, u[2])
 

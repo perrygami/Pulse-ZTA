@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Tooltip value</name>
+   <name>Non-complaince</name>
    <tag></tag>
-   <elementGuidId>7f2bac65-adc3-4577-a55d-b53a70a6bd80</elementGuidId>
+   <elementGuidId>cd04f4d7-82d5-4378-91e9-cbd5e1a1a320</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#dashboard-l1-non-compliance > div:nth-child(2) > svg > g > g.amcharts-Container  > g:nth-child(2) > g > g:nth-child(5) > g.amcharts-Container.amcharts-Tooltip > g > g > text > tspan</value>
+         <value>#Non-Compliances-button</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>
