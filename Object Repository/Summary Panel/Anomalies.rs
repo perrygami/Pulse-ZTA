@@ -6,14 +6,17 @@
    <elementGuidId>d11230bc-36a7-46a3-8d01-e7cc334348a0</elementGuidId>
    <selectorCollection>
       <entry>
+         <key>XPATH</key>
+         <value>//*[@id=&quot;Anomalies&quot;]</value>
+      </entry>
+      <entry>
          <key>BASIC</key>
-         <value></value>
       </entry>
       <entry>
          <key>CSS</key>
          <value>#Anomalies-button</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>CSS</selectorMethod>
+   <selectorMethod>XPATH</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>
