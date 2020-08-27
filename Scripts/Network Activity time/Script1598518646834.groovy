@@ -21,25 +21,61 @@ import java.text.ParseException as ParseException
 import java.text.SimpleDateFormat as SimpleDateFormat
 import java.util.Calendar as Calendar
 import groovy.time.TimeCategory as TimeCategory
+import groovy.json.JsonSlurper as JsonSlurper
 
-//CustomKeywords.'custom_keyword.keywords.login'()
+CustomKeywords.'custom_keyword.keywords.login'()
 
-//WebUI.delay(2)
+String jsonFile = '/Users/perry.gami/Downloads/Activity.json'
 
-//WebUI.getText(findTestObject('Activity/Start time'))
+def slurper = new JsonSlurper()
 
-//WebUI.getText(findTestObject('Activity/End time')) // format of the date
+File jsontxt = new File(jsonFile)
 
-String format = 'dd-MMM-yyyy'
+def result = slurper.parse(jsontxt)
 
-long time = '1598457515'
+String start = WebUI.getText(findTestObject('Activity/Start time'))
 
-static String convertUnixTimeStampToDateOrTime(long time, String format) {
-    Date date = new Date(time * 1000)
+String end = WebUI.getText(findTestObject('Activity/End time'))
 
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format, Locale.getDefault())
+println('Start Time for Network Activity : ' + start)
 
-    print(simpleDateFormat.format(date))
+println('/n')
+
+println('End Time for Network Activity : ' + end)
+
+long jsonStartTime = result.start_time
+
+println('JSON Start TimeStamp =  ' + jsonStartTime)
+
+long jsonEndTime = result.end_time
+
+println('JSON End TimeStamp = ' + jsonEndTime)
+
+println(start.substring(6, 24))
+
+Date date = new Date(jsonStartTime * 1000)
+
+SimpleDateFormat jdf = new SimpleDateFormat('"dd MMM yyyy hh:mm:ss a zzz "')
+
+jdf.setTimeZone(TimeZone.getTimeZone('GMT'))
+
+String java_date = jdf.format(date)
+
+System.out.println(('\n' + java_date) + '\n')
+
+String webStart_time = java_date
+
+println('Web Start Date' + webStart_time)
+
+if (jsonStartTime == webStart_time){
+	
+	print('values are matched')
+	
+}
+
+else {
+	
+	print('values are not matched')
 	
 }
 
