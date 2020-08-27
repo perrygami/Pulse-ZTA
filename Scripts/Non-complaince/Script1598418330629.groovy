@@ -53,7 +53,7 @@ try {
         myTestOject.addProperty('css', ConditionType.EQUALS, css)
 
         System.out.println(css)
-		wait(2)
+		WebUI.delay(3)
 
         //	WebUI.waitForElementVisible(myTestOject, 30)
         WebUI.mouseOver(myTestOject)
