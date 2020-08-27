@@ -21,3 +21,19 @@ WebUI.delay(2)
 
 CustomKeywords.'custom_keyword.keywords.apply_filter'()
 
+WebUI.delay(3)
+
+WebUI.mouseOver(findTestObject('Map tooltip objects/circle hover'))
+
+WebUI.getText(findTestObject('Map tooltip objects/Map-Gateways'))
+
+WebUI.getText(findTestObject('Map tooltip objects/Map-Users'))
+
+WebUI.getText(findTestObject('Map tooltip objects/Map-Devices'))
+
+WebUI.getText(findTestObject('Map tooltip objects/Map-non_compliance'))
+
+WebUI.getText(findTestObject('Map tooltip objects/Map-critical_errors'))
+
+WebUI.getText(findTestObject('Map tooltip objects/Map-applications'))
+

@@ -202,216 +202,216 @@ public class keywords {
 	def apply_filter(){
 
 		WebUI.click(findTestObject('Filter object/filter_button'))
-		
+
 		WebUI.click(findTestObject('Filter object/set_filter'))
-		
+
 		WebUI.click(findTestObject('Filter object/down_arrow'))
-		
+
 		WebUI.click(findTestObject('Filter object/last calander week'))
-		
+
 		WebUI.click(findTestObject('Filter object/Apply filter'))
 
 
 	}
-	
-	
-	@Keyword 
-	
+
+
+	@Keyword
+
 	def active_applications(){
-		
-		
+
+
 		def slurper = new JsonSlurper()
-		
-		
-		
-				File jsontxt = new File('/Users/perry.gami/Downloads/active_application.json')
-		
-		
-		
-				def result = slurper.parse(jsontxt)
-		
-		
+
+
+
+		File jsontxt = new File('/Users/perry.gami/Downloads/active_application.json')
+
+
+
+		def result = slurper.parse(jsontxt)
+
+
+		try {
+
+
+			ArrayList<String> UI = new ArrayList<String>()
+
+
+
+			ArrayList<String> JSON_Name = new ArrayList<String>()
+
+
+
+			ArrayList<String> JSON_Value = new ArrayList<String>()
+
+
+
+			for (int i = 0; i < 7; i++) {
+
+
+				//(JSON_Name[i]) = result[i].name
+
+
+				(JSON_Value[i]) = result[i].value
+
+
+
+				TestObject myTestObject = new TestObject('customObject')
+
+				String css = '#dashboard-radar-apps-accessed > div:nth-child(2) > svg > g > g.amcharts-Container > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Chart-group.amcharts-SerialChart-group.amcharts-XYChart-group.amcharts-RadarChart-group > g > g > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g.amcharts-Container > g:nth-child(1) > g > g:nth-child(1) > g > g > g > g > g > g > g > g:nth-child('+ (i+1) +') > g > g > g > g > path'
+
+				myTestObject.addProperty('css', ConditionType.EQUALS, css)
+
+				WebUI.mouseOver(myTestObject)
+
+
+
 				try {
-		
-		
-					ArrayList<String> UI = new ArrayList<String>()
-		
-		
-		
-					ArrayList<String> JSON_Name = new ArrayList<String>()
-		
-		
-		
-					ArrayList<String> JSON_Value = new ArrayList<String>()
-		
-		
-		
-					for (int i = 0; i < 7; i++) {
-		
-		
-						//(JSON_Name[i]) = result[i].name
-		
-		
-						(JSON_Value[i]) = result[i].value
-		
-		
-		
-						TestObject myTestObject = new TestObject('customObject')
-		
-						String css = '#dashboard-radar-apps-accessed > div:nth-child(2) > svg > g > g.amcharts-Container > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Chart-group.amcharts-SerialChart-group.amcharts-XYChart-group.amcharts-RadarChart-group > g > g > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g.amcharts-Container > g:nth-child(1) > g > g:nth-child(1) > g > g > g > g > g > g > g > g:nth-child('+ (i+1) +') > g > g > g > g > path'
-		
-						myTestObject.addProperty('css', ConditionType.EQUALS, css)
-		
-						WebUI.mouseOver(myTestObject)
-		
-		
-		
-						try {
-							
-		
-							TestObject Tool = new TestObject('customObject')
-		
-							Tool.addProperty('css', ConditionType.EQUALS, '#dashboard-radar-apps-accessed > div:nth-child(2) > svg > g > g.amcharts-Container > g:nth-child(2) > g > g:nth-child(5) > g.amcharts-Container.amcharts-Tooltip > g > g > text > tspan')
-		
-		
-							(UI[(i + 1)]) = WebUI.getText(Tool)
-		
-		
-		
-							print(UI[(i + 1)])
-		
-		
-		
-						//	String[] a = (UI[(i + 1)]).split(':')
-		
-		
-		
-						//	System.out.println(a[0])
-		
-		
-		
-							//WebUI.verifyMatch(a[0], JSON_Name[i], false)
-		
-		
-		
-						//	System.out.println((a[1]) + (JSON_Value[i]))
-		
-		
-		
-							WebUI.verifyEqual(UI[(i + 1)], JSON_Value[i] )
-						}
-		
-						catch (Exception e) {
-							e.print('No tooltip found')
-							print(e)
-						}
-					}
+
+
+					TestObject Tool = new TestObject('customObject')
+
+					Tool.addProperty('css', ConditionType.EQUALS, '#dashboard-radar-apps-accessed > div:nth-child(2) > svg > g > g.amcharts-Container > g:nth-child(2) > g > g:nth-child(5) > g.amcharts-Container.amcharts-Tooltip > g > g > text > tspan')
+
+
+					(UI[(i + 1)]) = WebUI.getText(Tool)
+
+
+
+					print(UI[(i + 1)])
+
+
+
+					//	String[] a = (UI[(i + 1)]).split(':')
+
+
+
+					//	System.out.println(a[0])
+
+
+
+					//WebUI.verifyMatch(a[0], JSON_Name[i], false)
+
+
+
+					//	System.out.println((a[1]) + (JSON_Value[i]))
+
+
+
+					WebUI.verifyEqual(UI[(i + 1)], JSON_Value[i] )
 				}
+
 				catch (Exception e) {
-					e.print('test end')
+					e.print('No tooltip found')
 					print(e)
 				}
-		
-		
-		
-		
-		
-		
+			}
 		}
-	
-	
-	@Keyword 
-	def active_location(){
-		
-		def slurper = new JsonSlurper()
-		
-		
-		
-				File jsontxt = new File('/Users/perry.gami/Downloads/top_location.json')
-		
-		
-		
-				def result = slurper.parse(jsontxt)
-		
-		
-				try {
-		
-		
-					ArrayList<String> UI = new ArrayList<String>()
-		
-		
-		
-					ArrayList<String> JSON_Name = new ArrayList<String>()
-		
-		
-		
-					ArrayList<String> JSON_Value = new ArrayList<String>()
-		
-		
-		
-					for (int i = 0; i < 2; i++) {
-		
-		
-						//(JSON_Name[i]) = result[i].name
-		
-		
-						(JSON_Value[i]) = result[i].value
-		
-		
-		
-						TestObject myTestObject = new TestObject('customObject')
-		
-						String css = '#dashboard-radar-access-locations > div:nth-child(2) > svg > g > g.amcharts-Container > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Chart-group.amcharts-SerialChart-group.amcharts-XYChart-group.amcharts-RadarChart-group > g > g > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g.amcharts-Container > g:nth-child(1) > g > g:nth-child(1) > g > g > g > g > g > g > g > g:nth-child('+ (i+1) +') > g > g > g > g > path'
-		
-						myTestObject.addProperty('css', ConditionType.EQUALS, css)
-		
-						WebUI.mouseOver(myTestObject)
-		
-		
-		
-						try {
-							
-		
-							TestObject Tool = new TestObject('customObject')
-		
-							Tool.addProperty('css', ConditionType.EQUALS, '#dashboard-radar-access-locations > div:nth-child(2) > svg > g > g.amcharts-Container > g:nth-child(2) > g > g:nth-child(5) > g.amcharts-Container.amcharts-Tooltip > g > g > text > tspan')
-		
-		
-							(UI[(i + 1)]) = WebUI.getText(Tool)
-		
-		
-		
-							print(UI[(i + 1)])
-		
-		
-		
-						String[] a = (UI[(i + 1)]).split(':')
-		
-		
-	
-		
-							WebUI.verifyEqual(a[0], JSON_Value[i], true)
-						}
-		
-						catch (Exception e) {
-							e.print('No tooltip found')
-							print(e)
-						}
-					}
-				}
-				catch (Exception e) {
-					e.print('test end')
-					print(e)
-				}
-		
-		
-		
-		
-		
-		
+		catch (Exception e) {
+			e.print('test end')
+			print(e)
 		}
-	
+
+
+
+
+
+
 	}
+
+
+	@Keyword
+	def active_location(){
+
+		def slurper = new JsonSlurper()
+
+
+
+		File jsontxt = new File('/Users/perry.gami/Downloads/top_location.json')
+
+
+
+		def result = slurper.parse(jsontxt)
+
+
+		try {
+
+
+			ArrayList<String> UI = new ArrayList<String>()
+
+
+
+			ArrayList<String> JSON_Name = new ArrayList<String>()
+
+
+
+			ArrayList<String> JSON_Value = new ArrayList<String>()
+
+
+
+			for (int i = 0; i < 2; i++) {
+
+
+				//(JSON_Name[i]) = result[i].name
+
+
+				(JSON_Value[i]) = result[i].value
+
+
+
+				TestObject myTestObject = new TestObject('customObject')
+
+				String css = '#dashboard-radar-access-locations > div:nth-child(2) > svg > g > g.amcharts-Container > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Chart-group.amcharts-SerialChart-group.amcharts-XYChart-group.amcharts-RadarChart-group > g > g > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g.amcharts-Container > g:nth-child(1) > g > g:nth-child(1) > g > g > g > g > g > g > g > g:nth-child('+ (i+1) +') > g > g > g > g > path'
+
+				myTestObject.addProperty('css', ConditionType.EQUALS, css)
+
+				WebUI.mouseOver(myTestObject)
+
+
+
+				try {
+
+
+					TestObject Tool = new TestObject('customObject')
+
+					Tool.addProperty('css', ConditionType.EQUALS, '#dashboard-radar-access-locations > div:nth-child(2) > svg > g > g.amcharts-Container > g:nth-child(2) > g > g:nth-child(5) > g.amcharts-Container.amcharts-Tooltip > g > g > text > tspan')
+
+
+					(UI[(i + 1)]) = WebUI.getText(Tool)
+
+
+
+					print(UI[(i + 1)])
+
+
+
+					String[] a = (UI[(i + 1)]).split(':')
+
+
+
+
+					WebUI.verifyEqual(a[0], JSON_Value[i], true)
+				}
+
+				catch (Exception e) {
+					e.print('No tooltip found')
+					print(e)
+				}
+			}
+		}
+		catch (Exception e) {
+			e.print('test end')
+			print(e)
+		}
+
+
+
+
+
+
+	}
+
+}
 
 
 
