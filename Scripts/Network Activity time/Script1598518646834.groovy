@@ -14,26 +14,32 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
-import java.util.Date
-import java.util.TimeZone
-import com.kms.katalon.keyword.datetime.DateTimeUtility
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.Date as Date
+import java.util.TimeZone as TimeZone
+import java.text.DateFormat as DateFormat
+import java.text.ParseException as ParseException
+import java.text.SimpleDateFormat as SimpleDateFormat
+import java.util.Calendar as Calendar
+import groovy.time.TimeCategory as TimeCategory
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
-import groovy.time.TimeCategory
-import java.util.Date
+//CustomKeywords.'custom_keyword.keywords.login'()
 
+//WebUI.delay(2)
 
-CustomKeywords.'custom_keyword.keywords.login'()
+//WebUI.getText(findTestObject('Activity/Start time'))
 
-WebUI.delay(2)
+//WebUI.getText(findTestObject('Activity/End time')) // format of the date
 
-WebUI.getText(findTestObject('Activity/Start time'))
+String format = 'dd-MMM-yyyy'
 
-WebUI.getText(findTestObject('Activity/End time'))
+long time = '1598457515'
 
-date = new Date( 1598457515 ).toUTCString()
+static String convertUnixTimeStampToDateOrTime(long time, String format) {
+    Date date = new Date(time * 1000)
+
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format, Locale.getDefault())
+
+    print(simpleDateFormat.format(date))
+	
+}
+
