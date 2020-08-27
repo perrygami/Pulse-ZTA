@@ -36,7 +36,6 @@ Gateway_totalvalue = result[0].total_value
 
 UI_gateway = WebUI.getText(findTestObject('Summary Panel/Gateways'))
 
-
 print(UI_gateway)
 
 g = UI_gateway.split(' ')
@@ -45,10 +44,12 @@ for (int i = 0; i < g.length; i++) {
     System.out.println(((('g[' + i) + '] = "') + (g[i])) + '"')
 }
 
-final_string  = g[2].split(' ')
-print(final_string[0] )
-WebUI.verifyEqual(Gateway_value, g[0])
-WebUI.verifyEqual(Gateway_totalvalue, final_string[0])
+final_string1 = (g[2]).substring(0, 1)
+
+WebUI.verifyEqual(Gateway_value, g[0], FailureHandling.CONTINUE_ON_FAILURE)
+
+WebUI.verifyEqual(Gateway_totalvalue, final_string1, FailureHandling.CONTINUE_ON_FAILURE)
+
 //for users
 User_name = result[1].name
 
@@ -66,8 +67,12 @@ for (int i = 0; i < u.length; i++) {
     System.out.println(((('u[' + i) + '] = "') + (u[i])) + '"')
 }
 
-//WebUI.verifyEqual(Users_value, u[0])
-//WebUI.verifyEqual(Users_totalvalue, u[2])
+final_string1 = (u[2]).substring(0, 1)
+
+WebUI.verifyEqual(Users_value, u[0], FailureHandling.CONTINUE_ON_FAILURE)
+
+WebUI.verifyEqual(Users_totalvalue, final_string1, FailureHandling.CONTINUE_ON_FAILURE)
+
 // for devices
 Device_name = result[2].name
 
@@ -85,8 +90,12 @@ for (int i = 0; i < d.length; i++) {
     System.out.println(((('d[' + i) + '] = "') + (d[i])) + '"')
 }
 
-//WebUI.verifyEqual(Users_value, d[0])
-//WebUI.verifyEqual(Users_totalvalue, d[2])
+final_string3 = (d[2]).substring(0, 1)
+
+WebUI.verifyEqual(Device_value, d[0], FailureHandling.CONTINUE_ON_FAILURE)
+
+WebUI.verifyEqual(Device_totalvalue, final_string3, FailureHandling.CONTINUE_ON_FAILURE)
+
 // for Applications
 Application_name = result[3].name
 
@@ -104,8 +113,12 @@ for (int i = 0; i < a.length; i++) {
     System.out.println(((('a[' + i) + '] = "') + (a[i])) + '"')
 }
 
-//WebUI.verifyEqual(Users_value, a[0])
-//WebUI.verifyEqual(Users_totalvalue, a[2])
+final_string4 = (a[2]).substring(0, 1)
+
+WebUI.verifyEqual(Application_value, a[0], FailureHandling.CONTINUE_ON_FAILURE)
+
+WebUI.verifyEqual(Application_totalvalue, final_string4, FailureHandling.CONTINUE_ON_FAILURE)
+
 // for non-compliance
 non_compliance_name = result[4].name
 
@@ -123,8 +136,12 @@ for (int i = 0; i < n.length; i++) {
     System.out.println(((('n[' + i) + '] = "') + (n[i])) + '"')
 }
 
-//WebUI.verifyEqual(Users_value, n[0])
-//WebUI.verifyEqual(Users_totalvalue, n[2])
+final_string5 = (n[2]).substring(0, 1)
+
+WebUI.verifyEqual(non_compliance_value, n[0], FailureHandling.CONTINUE_ON_FAILURE)
+
+WebUI.verifyEqual(non_compliance_totalvalue, final_string5, FailureHandling.CONTINUE_ON_FAILURE)
+
 // for anomalies
 anomalies_name = result[5].name
 
@@ -136,9 +153,15 @@ UI_anomalies = WebUI.getText(findTestObject('Summary Panel/Anomalies'))
 
 print(UI_anomalies)
 
-a = UI_anomalies.split(' ')
+aa = UI_anomalies.split(' ')
 
-for (int i = 0; i < a.length; i++) {
-    System.out.println(((('a[' + i) + '] = "') + (a[i])) + '"')
+for (int i = 0; i < aa.length; i++) {
+    System.out.println(((('aa[' + i) + '] = "') + (aa[i])) + '"')
 }
+
+final_string6 = (aa[2]).substring(0, 1)
+
+WebUI.verifyEqual(anomalies_value, aa[0], FailureHandling.CONTINUE_ON_FAILURE)
+
+WebUI.verifyEqual(anomalies_totalvalue, final_string5, FailureHandling.CONTINUE_ON_FAILURE)
 

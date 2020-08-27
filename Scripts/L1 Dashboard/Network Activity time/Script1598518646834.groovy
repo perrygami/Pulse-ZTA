@@ -14,32 +14,86 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
-import java.util.Date as Date
-import java.util.TimeZone as TimeZone
-import java.text.DateFormat as DateFormat
-import java.text.ParseException as ParseException
+import org.openqa.selenium.Keys as Keys
+import groovy.json.JsonSlurper as JsonSlurper
 import java.text.SimpleDateFormat as SimpleDateFormat
-import java.util.Calendar as Calendar
-import groovy.time.TimeCategory as TimeCategory
 
-//CustomKeywords.'custom_keyword.keywords.login'()
+CustomKeywords.'custom_keyword.keywords.login'()
 
-//WebUI.delay(2)
+String jsonFile = '/Users/perry.gami/Downloads/Activity.json'
 
-//WebUI.getText(findTestObject('Activity/Start time'))
+def slurper = new JsonSlurper()
 
-//WebUI.getText(findTestObject('Activity/End time')) // format of the date
+File jsontxt = new File(jsonFile)
 
-String format = 'dd-MMM-yyyy'
+def result = slurper.parse(jsontxt)
 
-long time = '1598457515'
+String start = WebUI.getText(findTestObject('Activity/Start time'))
 
-static String convertUnixTimeStampToDateOrTime(long time, String format) {
-    Date date = new Date(time * 1000)
+println(start.substring(5, 31))
 
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format, Locale.getDefault())
+String end = WebUI.getText(findTestObject('Activity/End time'))
 
-    print(simpleDateFormat.format(date))
-	
+println(end.substring(5, 31))
+
+println('Start Time for Network Activity : ' + start)
+
+println('End Time for Network Activity : ' + end)
+
+long jsonStartTime = result.start_time
+
+println('JSON Start TimeStamp =  ' + jsonStartTime)
+
+long jsonEndTime = result.end_time
+
+println('JSON End TimeStamp = ' + jsonEndTime)
+
+//println(end.substring(5, 32))
+Date startDate = new Date(jsonStartTime * 1000)
+
+SimpleDateFormat jdf = new SimpleDateFormat('"dd MMM yyyy hh:mm:ss a zzz "')
+
+jdf.setTimeZone(TimeZone.getTimeZone('GMT'))
+
+String java_Startdate = jdf.format(startDate)
+
+System.out.println(('\n' + java_Startdate) + '\n')
+
+String webStartDate = java_Startdate.substring(1, 28)
+
+println('Web Start Date' + webStartDate)
+
+if (start.substring(5, 31) == webStartDate) {
+    println('Start Time Matched')
+
+    println((('Start Time from Web is : ' + start.substring(5, 31)) + ' and from JSON is : ') + webStartDate)
+} else {
+    println('Start Time not matched')
+
+    println((('Start Time from Web is : ' + start.substring(5, 31)) + ' and from JSON is : ') + webStartDate)
+}
+
+Date endDate = new Date(jsonEndTime * 1000)
+
+SimpleDateFormat jdf1 = new SimpleDateFormat('"dd MMM yyyy hh:mm:ss a zzz "')
+
+jdf1.setTimeZone(TimeZone.getTimeZone('GMT'))
+
+String java_Enddate = jdf1.format(endDate)
+
+System.out.println(('\n' + java_Enddate) + '\n')
+
+String webEndDate = java_Enddate.substring(1, 28)
+
+println('Web End Date' + webEndDate)
+
+if (end.substring(5, 31) == webEndDate) {
+    println('End Time Matched')
+
+    println((('End Time from Web is : ' + end.substring(5, 31)) + ' and from Json is : ') + webEndDate)
+} else {
+    println('End Time Not Matched')
+
+    println((('End Time from Web is : ' + start.substring(5, 31)) + ' and from Json is : ') + webEndDate)
 }
 

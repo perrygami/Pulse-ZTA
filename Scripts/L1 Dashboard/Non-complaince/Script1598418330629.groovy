@@ -21,6 +21,8 @@ CustomKeywords.'custom_keyword.keywords.login'()
 
 WebUI.delay(3)
 
+CustomKeywords.'com.katalon.jmeter.JMeterKeyword.createSampler'(null)
+
 WebUI.mouseOver(findTestObject('Login objects/Non-compliance'))
 
 WebUI.getText(findTestObject('Login objects/Tooltip value'))
@@ -53,7 +55,8 @@ try {
         myTestOject.addProperty('css', ConditionType.EQUALS, css)
 
         System.out.println(css)
-		WebUI.delay(3)
+
+        WebUI.delay(3)
 
         //	WebUI.waitForElementVisible(myTestOject, 30)
         WebUI.mouseOver(myTestOject)
@@ -62,9 +65,10 @@ try {
             Tooltip = new TestObject('customObject')
 
             Tooltip.addProperty('css', ConditionType.EQUALS, '#dashboard-l1-non-compliance > div:nth-child(2) > svg > g > g.amcharts-Container  > g:nth-child(2) > g > g:nth-child(5) > g.amcharts-Container.amcharts-Tooltip > g > g > text > tspan')
+
             (UI[(i + 1)]) = WebUI.getText(Tooltip)
 
-            print(UI[(i + 1)])	
+            print(UI[(i + 1)])
 
             String[] a = (UI[(i + 1)]).split(':')
 
@@ -74,9 +78,9 @@ try {
 
             System.out.println((a[1]) + (JSON_Value[i]))
 
-            WebUI.verifyEqual((a[1]).trim(), JSON_Value[i] //if (JSON_Value[i].compareTo(a[1])){
-                ) //	print("values are matched")
-            //}
+            WebUI.verifyEqual((a[1]).trim(), JSON_Value[i //if (JSON_Value[i].compareTo(a[1])){
+                ] //	print("values are matched")
+                ) //}
             //else {
             //	print("values are not matched")
             //}

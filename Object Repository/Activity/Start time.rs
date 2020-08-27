@@ -13,7 +13,11 @@
          <key>CSS</key>
          <value>#dashboard-header-title > sup > div > div:nth-child(1)</value>
       </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//*[@id=&quot;dashboard-header-title&quot;]/sup/div/div[1]</value>
+      </entry>
    </selectorCollection>
-   <selectorMethod>CSS</selectorMethod>
+   <selectorMethod>XPATH</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>

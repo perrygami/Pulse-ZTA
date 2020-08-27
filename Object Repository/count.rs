@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>End time</name>
+   <name>count</name>
    <tag></tag>
-   <elementGuidId>9e5dfa00-9884-4a4a-aead-c31ecdfa2acb</elementGuidId>
+   <elementGuidId>cd763295-323e-4355-9a7d-0eb64734721d</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -11,13 +11,13 @@
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#dashboard-header-title > sup > div > div:nth-child(2)</value>
+         <value>#info-panel > div > div.dashboard-sidepanel__header > div > div.dashboard-sidepanel__title-section--count</value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//*[@id=&quot;dashboard-header-title&quot;]/sup/div/div[2]</value>
+         <value>//*[@id=&quot;info-panel&quot;]/div/div[1]/div/div[2]</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>CSS</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>
