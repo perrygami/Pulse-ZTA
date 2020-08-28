@@ -29,7 +29,7 @@ WebUI.getText(findTestObject('Login objects/Tooltip value'))
 
 def slurper = new JsonSlurper()
 
-File jsontxt = new File(System.getProperty('user.dir') + '/JSON/Non_compliance.json')
+File jsontxt = new File(System.getProperty('user.dir') + '/JSON/Non-compliance.json')
 
 def result = slurper.parse(jsontxt)
 
@@ -79,9 +79,9 @@ try {
 
             WebUI.verifyEqual((a[1]).trim(), JSON_Value[i //if (JSON_Value[i].compareTo(a[1])){
                 //	print("values are matched")
-                ] //}
-                ) //else {
-            //	print("values are not matched")
+                //}
+                ] //else {
+                ) //	print("values are not matched")
             //}
             //WebUI.verifyMatch(a[1], JSON_Value[i], false)
         }
@@ -93,4 +93,6 @@ try {
 catch (Exception e) {
     e.print('test end')
 } 
+
+WebUI.closeBrowser()
 

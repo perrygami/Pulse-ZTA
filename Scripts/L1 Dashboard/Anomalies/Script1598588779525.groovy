@@ -42,7 +42,7 @@ WebUI.delay(2)
 //WebUI.mouseOver(findTestObject('Page_Pulse Zero Trust Access/Anomalies'))
 def slurper = new JsonSlurper()
 
-File jsontxt = new File(System.getProperty('user.dir') + '/JSON/Anomalies.json')
+File jsontxt = new File(System.getProperty('user.dir') + '/JSON/ActiveAnomalies.json')
 
 def result = slurper.parse(jsontxt)
 
@@ -74,7 +74,7 @@ try {
         try {
             Tooltip = new TestObject('customObject')
 
-            Tooltip.addProperty('css', ConditionType.EQUALS, '#dashboard-l1-anomalies-chart > div:nth-child(2) > svg > g > g:nth-child(2) > g:nth-child(2) > g > g:nth-child(6) > g:nth-child(2) > g > g > text > tspan')
+            Tooltip.addProperty('css', ConditionType.EQUALS, '#dashboard-l1-anomalies-chart > div:nth-child(2) > svg > g > g.amcharts-Container > g:nth-child(2) > g > g:nth-child(6) > g.amcharts-Container.amcharts-Tooltip > g > g > text > tspan')
 
             (UI[(i + 1)]) = WebUI.getText(Tooltip)
 
@@ -87,8 +87,6 @@ try {
             WebUI.verifyMatch(a[0], JSON_Name[i], false, FailureHandling.CONTINUE_ON_FAILURE)
 
             WebUI.verifyEqual((a[1]).trim(), JSON_Value[i], false, FailureHandling.CONTINUE_ON_FAILURE)
-
-            System.out.println((a[1]) + (JSON_Value[i]))
 
             if ((a[1]).trim() == (JSON_Value[i])) {
                 print('values are matched ')

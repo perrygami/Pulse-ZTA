@@ -165,3 +165,5 @@ catch (Exception e) {
     e.printStackTrace()
 } 
 
+WebUI.closeBrowser()
+

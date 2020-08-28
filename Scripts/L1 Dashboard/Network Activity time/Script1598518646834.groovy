@@ -55,7 +55,7 @@ jdf.setTimeZone(TimeZone.getTimeZone('GMT'))
 
 String java_Startdate = jdf.format(startDate)
 
-System.out.println(('\n' + java_Startdate) + '\n')
+//System.out.println(('\n' + java_Startdate) + '\n')
 
 String webStartDate = java_Startdate.substring(1, 28)
 
