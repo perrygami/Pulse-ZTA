@@ -21,7 +21,7 @@ CustomKeywords.'custom_keyword.keywords.login'()
 
 WebUI.delay(3)
 
-CustomKeywords.'com.katalon.jmeter.JMeterKeyword.createSampler'(null)
+CustomKeywords.'custom_keyword.keywords.apply_filter'()
 
 WebUI.mouseOver(findTestObject('Login objects/Non-compliance'))
 
@@ -29,7 +29,7 @@ WebUI.getText(findTestObject('Login objects/Tooltip value'))
 
 def slurper = new JsonSlurper()
 
-File jsontxt = new File('/Users/perry.gami/Downloads/non-complaince.json')
+File jsontxt = new File(System.getProperty('user.dir') + '/JSON/Non_compliance.json')
 
 def result = slurper.parse(jsontxt)
 
@@ -40,7 +40,7 @@ try {
 
     ArrayList<String> JSON_Value = new ArrayList<String>()
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 5; i++) {
         (JSON_Name[i]) = result.non_compliance_policies[i].name
 
         (JSON_Value[i]) = result.non_compliance_policies[i].value
@@ -56,8 +56,7 @@ try {
 
         System.out.println(css)
 
-      //  WebUI.delay(3)
-
+        //  WebUI.delay(3)
         //	WebUI.waitForElementVisible(myTestOject, 30)
         WebUI.mouseOver(myTestOject)
 
@@ -79,9 +78,9 @@ try {
             System.out.println((a[1]) + (JSON_Value[i]))
 
             WebUI.verifyEqual((a[1]).trim(), JSON_Value[i //if (JSON_Value[i].compareTo(a[1])){
-                ] //	print("values are matched")
-                ) //}
-            //else {
+                //	print("values are matched")
+                ] //}
+                ) //else {
             //	print("values are not matched")
             //}
             //WebUI.verifyMatch(a[1], JSON_Value[i], false)

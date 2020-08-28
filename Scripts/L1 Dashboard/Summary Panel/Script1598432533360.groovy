@@ -23,7 +23,7 @@ WebUI.delay(2)
 
 def slurper = new JsonSlurper()
 
-File jsontxt = new File('/Users/perry.gami/Downloads/summary_panel.json')
+File jsontxt = new File(System.getProperty('user.dir') + '/JSON/Summarypanel.json')
 
 def result = slurper.parse(jsontxt)
 
@@ -147,7 +147,7 @@ anomalies_totalvalue = result[5].total_value
 
 UI_anomalies = WebUI.getText(findTestObject('Summary Panel/Anomalies'))
 
-aa = UI_non_compliance.substring(0,2)
+aa = UI_anomalies.substring(0,2)
 
 //WebUI.verifyEqual(anomalies_value, aa[0], FailureHandling.CONTINUE_ON_FAILURE)
 

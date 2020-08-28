@@ -32,7 +32,7 @@ println('Count of Non Compilance = ' + count)
 try {
     ArrayList<String> UI = new ArrayList<String>()
 
-    for (int i = 1; i <= 1; i++) {
+    for (int i = 1; i <= count.toInteger(); i++) {
         String poilcyCss = ('#info-panel > div > div:nth-child(2) > div:nth-child(' + i) + ') > div.dashboard-sidepanel__content-panel > div > div:nth-child(1) > div:nth-child(1) > div > div.dashboard-sidepanel__value'
 
         String deviceTypeCss = ('#info-panel > div > div:nth-child(2) > div:nth-child(' + i) + ') > div.dashboard-sidepanel__content-panel > div > div:nth-child(1) > div:nth-child(2) > div > div.dashboard-sidepanel__value'
@@ -46,7 +46,7 @@ try {
 
         def slurper = new JsonSlurper()
 
-        File jsontxt = new File(jsonFile)
+        File jsontxt = new File(System.getProperty('user.dir') + '/JSON/Slidpanel_noncompliance.json')
 
         def result = slurper.parse(jsontxt)
 

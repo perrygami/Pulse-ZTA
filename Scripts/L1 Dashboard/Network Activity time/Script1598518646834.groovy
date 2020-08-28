@@ -20,11 +20,9 @@ import java.text.SimpleDateFormat as SimpleDateFormat
 
 CustomKeywords.'custom_keyword.keywords.login'()
 
-String jsonFile = '/Users/perry.gami/Downloads/Activity.json'
-
 def slurper = new JsonSlurper()
 
-File jsontxt = new File(jsonFile)
+File jsontxt = new File(System.getProperty('user.dir') + '/JSON/Activity_time.json')
 
 def result = slurper.parse(jsontxt)
 

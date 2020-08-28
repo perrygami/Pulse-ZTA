@@ -26,7 +26,7 @@ WebUI.delay(3)
 
 def slurper = new JsonSlurper()
 
-File jsontxt = new File('/Users/perry.gami/Downloads/Maptooltip.json')
+File jsontxt = new File(System.getProperty('user.dir') + '/JSON/Maptooltip.json')
 
 def result = slurper.parse(jsontxt)
 

@@ -42,7 +42,7 @@ WebUI.delay(2)
 //WebUI.mouseOver(findTestObject('Page_Pulse Zero Trust Access/Anomalies'))
 def slurper = new JsonSlurper()
 
-File jsontxt = new File('/Users/perry.gami/Downloads/config_008.json')
+File jsontxt = new File(System.getProperty('user.dir') + '/JSON/Anomalies.json')
 
 def result = slurper.parse(jsontxt)
 
