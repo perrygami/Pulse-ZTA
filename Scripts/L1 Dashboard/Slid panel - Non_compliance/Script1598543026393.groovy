@@ -42,8 +42,6 @@ try {
         String deviceIdCss = ('#info-panel > div > div:nth-child(2) > div:nth-child(' + i) + ') > div.dashboard-sidepanel__content-panel > div > div:nth-child(3) > div > div > div.dashboard-sidepanel__value'
 
         //String css = '#topRiskyUsersChart > div:nth-child(2) > svg > g > g.amcharts-Container > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Chart-group.amcharts-SerialChart-group.amcharts-XYChart-group > g > g:nth-child(2) > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g.amcharts-Container > g:nth-child(3) > g > g > g > g.amcharts-Sprite-group.amcharts-Container-group > g > g > g > g:nth-child(' + i + ')'
-        String jsonFile = '/Users/perry.gami/Downloads/slidepanel_noncompliance.json'
-
         def slurper = new JsonSlurper()
 
         File jsontxt = new File(System.getProperty('user.dir') + '/JSON/Slidpanel_noncompliance.json')

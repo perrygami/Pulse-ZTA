@@ -59,8 +59,8 @@ try {
         (JSON_Value[i]) = result.buckets[i].value
 
         //print("name is " + JSON[i]  )
-        String css = ('#dashboard-l1-anomalies-chart > div:nth-child(2) > svg > g > g:nth-child(2) > g:nth-child(1) > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g > g:nth-child(1) > g:nth-child(2) > g:nth-child(3) > g > g:nth-child(' + 
-        (i + 1)) + ') > g > g > g > g > g > g > g > g > path'
+        String css = '#dashboard-l1-anomalies-chart > div:nth-child(2) > svg > g > g:nth-child(2) > g:nth-child(1) > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g > g:nth-child(1) > g:nth-child(2) > g:nth-child(3) > g > g:nth-child(' + 
+        (i + 1) + ') > g > g > g > g > g > g > g > g > path'
 
         //String css = '#topRiskyUsersChart > div:nth-child(2) > svg > g > g.amcharts-Container > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Chart-group.amcharts-SerialChart-group.amcharts-XYChart-group > g > g:nth-child(2) > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g.amcharts-Container > g:nth-child(3) > g > g > g > g.amcharts-Sprite-group.amcharts-Container-group > g > g > g > g:nth-child(' + i + ')'
         myTestOject = new TestObject('customObject')
@@ -102,4 +102,6 @@ try {
 catch (Exception e) {
     e.print('test end')
 } 
+
+WebUI.closeBrowser()
 
