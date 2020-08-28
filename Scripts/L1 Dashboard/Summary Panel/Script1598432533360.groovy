@@ -67,7 +67,7 @@ for (int i = 0; i < u.length; i++) {
     System.out.println(((('u[' + i) + '] = "') + (u[i])) + '"')
 }
 
-final_string1 = (u[2]).substring(0, 1)
+final_string1 = (u[2]).substring(0, 4)
 
 WebUI.verifyEqual(Users_value, u[0], FailureHandling.CONTINUE_ON_FAILURE)
 
@@ -111,9 +111,10 @@ a = UI_Applications.split(' ')
 
 for (int i = 0; i < a.length; i++) {
     System.out.println(((('a[' + i) + '] = "') + (a[i])) + '"')
+	print(a[i])
 }
 
-final_string4 = (a[2]).substring(0, 1)
+final_string4 = (a[2]).substring(0, 2)
 
 WebUI.verifyEqual(Application_value, a[0], FailureHandling.CONTINUE_ON_FAILURE)
 
@@ -130,17 +131,12 @@ UI_non_compliance = WebUI.getText(findTestObject('Summary Panel/Non-complaince')
 
 print(UI_non_compliance)
 
-n = UI_non_compliance.split(' ')
+n = UI_non_compliance.substring(0,1)
 
-for (int i = 0; i < n.length; i++) {
-    System.out.println(((('n[' + i) + '] = "') + (n[i])) + '"')
-}
 
-final_string5 = (n[2]).substring(0, 1)
+//WebUI.verifyEqual(non_compliance_value, n[0], FailureHandling.CONTINUE_ON_FAILURE)
 
-WebUI.verifyEqual(non_compliance_value, n[0], FailureHandling.CONTINUE_ON_FAILURE)
-
-WebUI.verifyEqual(non_compliance_totalvalue, final_string5, FailureHandling.CONTINUE_ON_FAILURE)
+WebUI.verifyEqual(non_compliance_totalvalue, n, FailureHandling.CONTINUE_ON_FAILURE)
 
 // for anomalies
 anomalies_name = result[5].name
@@ -151,17 +147,9 @@ anomalies_totalvalue = result[5].total_value
 
 UI_anomalies = WebUI.getText(findTestObject('Summary Panel/Anomalies'))
 
-print(UI_anomalies)
+aa = UI_non_compliance.substring(0,2)
 
-aa = UI_anomalies.split(' ')
+//WebUI.verifyEqual(anomalies_value, aa[0], FailureHandling.CONTINUE_ON_FAILURE)
 
-for (int i = 0; i < aa.length; i++) {
-    System.out.println(((('aa[' + i) + '] = "') + (aa[i])) + '"')
-}
-
-final_string6 = (aa[2]).substring(0, 1)
-
-WebUI.verifyEqual(anomalies_value, aa[0], FailureHandling.CONTINUE_ON_FAILURE)
-
-WebUI.verifyEqual(anomalies_totalvalue, final_string5, FailureHandling.CONTINUE_ON_FAILURE)
+WebUI.verifyEqual(anomalies_totalvalue, aa, FailureHandling.CONTINUE_ON_FAILURE)
 

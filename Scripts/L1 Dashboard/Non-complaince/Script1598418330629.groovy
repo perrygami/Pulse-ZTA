@@ -40,7 +40,7 @@ try {
 
     ArrayList<String> JSON_Value = new ArrayList<String>()
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 3; i++) {
         (JSON_Name[i]) = result.non_compliance_policies[i].name
 
         (JSON_Value[i]) = result.non_compliance_policies[i].value
@@ -56,7 +56,7 @@ try {
 
         System.out.println(css)
 
-        WebUI.delay(3)
+      //  WebUI.delay(3)
 
         //	WebUI.waitForElementVisible(myTestOject, 30)
         WebUI.mouseOver(myTestOject)

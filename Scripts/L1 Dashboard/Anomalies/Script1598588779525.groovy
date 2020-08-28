@@ -59,7 +59,8 @@ try {
         (JSON_Value[i]) = result.buckets[i].value
 
         //print("name is " + JSON[i]  )
-        String css = ('#dashboard-l1-anomalies-chart > div:nth-child(2) > svg > g > g:nth-child(2) > g:nth-child(1) > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g > g:nth-child(1) > g:nth-child(2) > g:nth-child(3) > g > g:nth-child(' +  (i + 1)) + ') > g > g > g > g > g > g > g > g > path'
+        String css = ('#dashboard-l1-anomalies-chart > div:nth-child(2) > svg > g > g:nth-child(2) > g:nth-child(1) > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g > g:nth-child(1) > g:nth-child(2) > g:nth-child(3) > g > g:nth-child(' + 
+        (i + 1)) + ') > g > g > g > g > g > g > g > g > path'
 
         //String css = '#topRiskyUsersChart > div:nth-child(2) > svg > g > g.amcharts-Container > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Chart-group.amcharts-SerialChart-group.amcharts-XYChart-group > g > g:nth-child(2) > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g.amcharts-Container > g:nth-child(3) > g > g > g > g.amcharts-Sprite-group.amcharts-Container-group > g > g > g > g:nth-child(' + i + ')'
         myTestOject = new TestObject('customObject')
@@ -83,17 +84,17 @@ try {
 
             System.out.println(a[0])
 
-            WebUI.verifyMatch(a[0], JSON_Name[i], false)
+            WebUI.verifyMatch(a[0], JSON_Name[i], false, FailureHandling.CONTINUE_ON_FAILURE)
+
+            WebUI.verifyEqual((a[1]).trim(), JSON_Value[i], false, FailureHandling.CONTINUE_ON_FAILURE)
 
             System.out.println((a[1]) + (JSON_Value[i]))
 
-            WebUI.verifyEqual((a[1]).trim(), JSON_Value[i]) //if (JSON_Value[i].compareTo(a[1])){
-            //	print("values are matched")
-            //}
-            //else {
-            //	print("values are not matched")
-            //}
-            //WebUI.verifyMatch(a[1], JSON_Value[i], false)
+            if ((a[1]).trim() == (JSON_Value[i])) {
+                print('values are matched ')
+            } else {
+                print('values are not matched')
+            }
         }
         catch (Exception e) {
             e.print('No tooltip found')
