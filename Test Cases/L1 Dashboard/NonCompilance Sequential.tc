@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>L1_ApplitoolsCheckWindow</name>
+   <name>NonCompilance Sequential</name>
    <tag></tag>
    <comment></comment>
-   <testCaseGuid>2519ea73-b7e3-43b7-90bb-3fdce257cab4</testCaseGuid>
+   <testCaseGuid>7ec35cd0-8357-4403-9d55-b8c5298079ac</testCaseGuid>
 </TestCaseEntity>

@@ -3,6 +3,7 @@
 //import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 //import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 //
+<<<<<<< HEAD
 //import com.applitools.eyes.BatchInfo
 //import com.applitools.eyes.RectangleSize
 //import com.applitools.eyes.TestResultContainer
@@ -10,6 +11,15 @@
 //import com.applitools.eyes.config.Configuration
 //import com.applitools.eyes.selenium.ClassicRunner
 //import com.applitools.eyes.selenium.Eyes
+=======
+////import com.applitools.eyes.BatchInfo
+////import com.applitools.eyes.RectangleSize
+////import com.applitools.eyes.TestResultContainer
+////import com.applitools.eyes.TestResultsSummary
+////import com.applitools.eyes.config.Configuration
+////import com.applitools.eyes.selenium.ClassicRunner
+////import com.applitools.eyes.selenium.Eyes
+>>>>>>> branch 'master' of https://github.com/perrygami/Pulse-ZTA.git
 //import org.openqa.selenium.chrome.ChromeDriver
 //import org.testng.ITestContext
 //import org.testng.ITestResult
