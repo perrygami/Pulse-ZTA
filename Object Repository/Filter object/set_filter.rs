@@ -6,14 +6,17 @@
    <elementGuidId>a25bf806-5e8c-43d8-9112-c1e5b22ff954</elementGuidId>
    <selectorCollection>
       <entry>
+         <key>CSS</key>
+         <value>body > div:nth-child(16) > div > div > div > ul > li:nth-child(1) > span</value>
+      </entry>
+      <entry>
          <key>BASIC</key>
-         <value></value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>/html/body/div[18]/div/div/div/ul/li[1]</value>
+         <value>body > div:nth-child(16) > div > div > div > ul > li:nth-child(1) > span</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>CSS</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>

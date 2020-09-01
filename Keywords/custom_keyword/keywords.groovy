@@ -202,13 +202,9 @@ public class keywords {
 	def apply_filter(){
 
 		WebUI.click(findTestObject('Filter object/filter_button'))
-
 		WebUI.click(findTestObject('Filter object/set_filter'))
-
 		WebUI.click(findTestObject('Filter object/down_arrow'))
-
 		WebUI.click(findTestObject('Filter object/last calander week'))
-
 		WebUI.click(findTestObject('Filter object/Apply filter'))
 
 

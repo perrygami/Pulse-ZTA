@@ -6,27 +6,17 @@
    <defaultProfile>true</defaultProfile>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'https://analytics.elm.pzt.dev.perfsec.com/dana-na/auth/url_YB2cw5imY9wCIjdD/welcome.cgi'</initValue>
+      <initValue>'https://analytics.elm.pzt.dev.perfsec.com/login/admin'</initValue>
       <name>URL</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'perry1'</initValue>
+      <initValue>'Tapan1'</initValue>
       <name>username</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
       <initValue>'dana123'</initValue>
       <name>password</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>'admindb'</initValue>
-      <name>Username</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>'dana123'</initValue>
-      <name>Password</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>
