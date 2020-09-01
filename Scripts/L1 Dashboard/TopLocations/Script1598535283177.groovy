@@ -29,9 +29,9 @@ WebUI.maximizeWindow()
 
 WebUI.navigateToUrl(GlobalVariable.URL)
 
-WebUI.setText(findTestObject('Login objects/input_Username_username'), GlobalVariable.Username)
+WebUI.setText(findTestObject('Login objects/input_Username_username'), GlobalVariable.username)
 
-WebUI.setText(findTestObject('Login objects/input_Password_password'), GlobalVariable.Password)
+WebUI.setText(findTestObject('Login objects/input_Password_password'), GlobalVariable.password)
 
 WebUI.sendKeys(findTestObject('Login objects/input_Password_password'), Keys.chord(Keys.ENTER))
 

@@ -21,6 +21,8 @@ import groovy.json.JsonSlurper as JsonSlurper
 
 CustomKeywords.'custom_keyword.keywords.login'()
 
+CustomKeywords.'custom_keyword.keywords.apply_filter'()
+
 WebUI.click(findTestObject('Summary Panel/Non-complaince'))
 
 WebUI.delay(2)
@@ -162,6 +164,4 @@ catch (Exception e) {
 
     e.printStackTrace()
 } 
-
-WebUI.closeBrowser()
 
