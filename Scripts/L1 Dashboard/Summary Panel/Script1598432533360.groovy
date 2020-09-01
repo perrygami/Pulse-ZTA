@@ -21,135 +21,154 @@ CustomKeywords.'custom_keyword.keywords.login'()
 
 WebUI.delay(2)
 
+//WebUI.mouseOver(findTestObject('Summary Panel/hover-gateway'))
+//WebUI.getText(findTestObject('Summary Panel/tooltip-gateways'))
 def slurper = new JsonSlurper()
 
 File jsontxt = new File(System.getProperty('user.dir') + '/JSON/Summarypanel.json')
-
+	
 def result = slurper.parse(jsontxt)
 
 // For gateway
-Gateway_name = result[0].name
+ArrayList<String> Summary_tooltip = new ArrayList<String>()
 
-Gateway_value = result[0].actual_value
+for (j = 0; j < 6; j++) {
+    String css = ('#dashboard-summary__container > div:nth-child(' + (j + 1)) + ') > div > div.custom-compact-summary-card__flex-row.bottomRow > span'
 
-Gateway_totalvalue = result[0].total_value
+    //String css = '#topRiskyUsersChart > div:nth-child(2) > svg > g > g.amcharts-Container > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Chart-group.amcharts-SerialChart-group.amcharts-XYChart-group > g > g:nth-child(2) > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g.amcharts-Container > g:nth-child(3) > g > g > g > g.amcharts-Sprite-group.amcharts-Container-group > g > g > g > g:nth-child(' + i + ')'
+    Summary_panel = new TestObject('customObject')
 
-UI_gateway = WebUI.getText(findTestObject('Summary Panel/Gateways'))
+    Summary_panel.addProperty('css', ConditionType.EQUALS, css)
 
-print(UI_gateway)
+    System.out.println(css)
 
-g = UI_gateway.split(' ')
+    WebUI.getText(Summary_panel)
 
-for (int i = 0; i < g.length; i++) {
-    System.out.println(((('g[' + i) + '] = "') + (g[i])) + '"')
+    for (k = 0; k < 6; k++) {
+        if (WebUI.getText(Summary_panel).toLowerCase() == result[k].name) {
+            //Gateway_name = result[0].name
+            if (result[k].name == 'gateways') {
+                print('into the gateway')
+
+                Gateway_value = result[k].actual_value
+
+                Gateway_totalvalue = result[k].total_value
+
+                UI_gateway = WebUI.getText(findTestObject('Summary Panel/Gateways'))
+
+                print(UI_gateway)
+
+                g = UI_gateway.split(' ')
+
+                for (int i = 0; i < g.length; i++) {
+                    System.out.println(((('g[' + i) + '] = "') + (g[i])) + '"')
+                }
+                
+                final_string1 = (g[2]).substring(0, 1)
+
+                WebUI.verifyEqual(Gateway_value, g[0], FailureHandling.CONTINUE_ON_FAILURE)
+
+                WebUI.verifyEqual(Gateway_totalvalue, final_string1, FailureHandling.CONTINUE_ON_FAILURE)
+
+                break
+               
+            } else if (result[k].name == 'users') {
+                Users_value = result[k].actual_value
+
+                Users_totalvalue = result[k].total_value
+
+                UI_users = WebUI.getText(findTestObject('Summary Panel/Users'))
+
+                print(UI_users)
+
+                u = UI_users.split(' ')
+
+                for (int i = 0; i < u.length; i++) {
+                    System.out.println(((('u[' + i) + '] = "') + (u[i])) + '"')
+                }
+                
+                final_string1 = (u[2]).substring(0, 4)
+
+                WebUI.verifyEqual(Users_value, u[0], FailureHandling.CONTINUE_ON_FAILURE)
+
+                WebUI.verifyEqual(Users_totalvalue, final_string1, FailureHandling.CONTINUE_ON_FAILURE)
+
+                break
+            } else if (result[k].name == 'devices') {
+                Device_value = result[j].actual_value
+
+                Device_totalvalue = result[j].total_value
+
+                UI_devices = WebUI.getText(findTestObject('Summary Panel/Devices'))
+
+                print(UI_devices)
+
+                d = UI_devices.split(' ')
+
+                for (int i = 0; i < d.length; i++) {
+                    System.out.println(((('d[' + i) + '] = "') + (d[i])) + '"')
+                }
+                
+                final_string3 = (d[2]).substring(0, 1)
+
+                WebUI.verifyEqual(Device_value, d[0], FailureHandling.CONTINUE_ON_FAILURE)
+
+                WebUI.verifyEqual(Device_totalvalue, final_string3, FailureHandling.CONTINUE_ON_FAILURE)
+
+                break
+            } else if (result[k].name == 'applications') {
+                Application_value = result[j].actual_value
+
+                Application_totalvalue = result[j].total_value
+
+                UI_Applications = WebUI.getText(findTestObject('Summary Panel/Applications'))
+
+                print(UI_Applications)
+
+                a = UI_Applications.split(' ')
+
+                for (int i = 0; i < a.length; i++) {
+                    System.out.println(((('a[' + i) + '] = "') + (a[i])) + '"')
+
+                    print(a[i])
+                }
+                
+                final_string4 = (a[2]).substring(0, 2)
+
+                WebUI.verifyEqual(Application_value, a[0], FailureHandling.CONTINUE_ON_FAILURE)
+
+                WebUI.verifyEqual(Application_totalvalue, final_string4, FailureHandling.CONTINUE_ON_FAILURE)
+
+                break
+            } else if (result[k].name == 'non_compliance') {
+                non_compliance_value = result[j].actual_value
+
+                non_compliance_totalvalue = result[j].total_value
+
+                UI_non_compliance = WebUI.getText(findTestObject('Summary Panel/Non-complaince'))
+
+                print(UI_non_compliance)
+
+                n = UI_non_compliance.substring(0, 1)
+
+                WebUI.verifyEqual(non_compliance_totalvalue, n, FailureHandling.CONTINUE_ON_FAILURE)
+
+                break
+            } else if (result[k].name == 'anomalies') {
+                anomalies_name = result[j].name
+
+                anomalies_value = result[j].actual_value
+
+                anomalies_totalvalue = result[j].total_value
+
+                UI_anomalies = WebUI.getText(findTestObject('Summary Panel/Anomalies'))
+
+                aa = UI_anomalies.substring(0, 2)
+
+                WebUI.verifyEqual(anomalies_totalvalue, aa, FailureHandling.CONTINUE_ON_FAILURE)
+
+                break
+            }
+        } //////////
+    }
 }
-
-final_string1 = (g[2]).substring(0, 1)
-
-WebUI.verifyEqual(Gateway_value, g[0], FailureHandling.CONTINUE_ON_FAILURE)
-
-WebUI.verifyEqual(Gateway_totalvalue, final_string1, FailureHandling.CONTINUE_ON_FAILURE)
-
-//for users
-User_name = result[1].name
-
-Users_value = result[1].actual_value
-
-Users_totalvalue = result[1].total_value
-
-UI_users = WebUI.getText(findTestObject('Summary Panel/Users'))
-
-print(UI_users)
-
-u = UI_users.split(' ')
-
-for (int i = 0; i < u.length; i++) {
-    System.out.println(((('u[' + i) + '] = "') + (u[i])) + '"')
-}
-
-final_string1 = (u[2]).substring(0, 4)
-
-WebUI.verifyEqual(Users_value, u[0], FailureHandling.CONTINUE_ON_FAILURE)
-
-WebUI.verifyEqual(Users_totalvalue, final_string1, FailureHandling.CONTINUE_ON_FAILURE)
-
-// for devices
-Device_name = result[2].name
-
-Device_value = result[2].actual_value
-
-Device_totalvalue = result[2].total_value
-
-UI_devices = WebUI.getText(findTestObject('Summary Panel/Devices'))
-
-print(UI_devices)
-
-d = UI_devices.split(' ')
-
-for (int i = 0; i < d.length; i++) {
-    System.out.println(((('d[' + i) + '] = "') + (d[i])) + '"')
-}
-
-final_string3 = (d[2]).substring(0, 1)
-
-WebUI.verifyEqual(Device_value, d[0], FailureHandling.CONTINUE_ON_FAILURE)
-
-WebUI.verifyEqual(Device_totalvalue, final_string3, FailureHandling.CONTINUE_ON_FAILURE)
-
-// for Applications
-Application_name = result[3].name
-
-Application_value = result[3].actual_value
-
-Application_totalvalue = result[3].total_value
-
-UI_Applications = WebUI.getText(findTestObject('Summary Panel/Applications'))
-
-print(UI_Applications)
-
-a = UI_Applications.split(' ')
-
-for (int i = 0; i < a.length; i++) {
-    System.out.println(((('a[' + i) + '] = "') + (a[i])) + '"')
-	print(a[i])
-}
-
-final_string4 = (a[2]).substring(0, 2)
-
-WebUI.verifyEqual(Application_value, a[0], FailureHandling.CONTINUE_ON_FAILURE)
-
-WebUI.verifyEqual(Application_totalvalue, final_string4, FailureHandling.CONTINUE_ON_FAILURE)
-
-// for non-compliance
-non_compliance_name = result[4].name
-
-non_compliance_value = result[4].actual_value
-
-non_compliance_totalvalue = result[4].total_value
-
-UI_non_compliance = WebUI.getText(findTestObject('Summary Panel/Non-complaince'))
-
-print(UI_non_compliance)
-
-n = UI_non_compliance.substring(0,1)
-
-
-//WebUI.verifyEqual(non_compliance_value, n[0], FailureHandling.CONTINUE_ON_FAILURE)
-
-WebUI.verifyEqual(non_compliance_totalvalue, n, FailureHandling.CONTINUE_ON_FAILURE)
-
-// for anomalies
-anomalies_name = result[5].name
-
-anomalies_value = result[5].actual_value
-
-anomalies_totalvalue = result[5].total_value
-
-UI_anomalies = WebUI.getText(findTestObject('Summary Panel/Anomalies'))
-
-aa = UI_anomalies.substring(0,2)
-
-//WebUI.verifyEqual(anomalies_value, aa[0], FailureHandling.CONTINUE_ON_FAILURE)
-
-WebUI.verifyEqual(anomalies_totalvalue, aa, FailureHandling.CONTINUE_ON_FAILURE)
-

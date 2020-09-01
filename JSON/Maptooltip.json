@@ -8,19 +8,20 @@
 				"status": 0,
 				"value": 7
 			},
-			"active_devices": {
-				"fill_percent": 0,
-				"has_errors": false,
-				"name": "ActiveDevices",
-				"status": 100,
-				"value": 2
-			},
+			
 			"active_gateways": {
 				"fill_percent": 0,
 				"has_errors": false,
 				"name": "ActiveGateways",
 				"status": 76,
 				"value": 1
+			},
+			"active_devices": {
+				"fill_percent": 0,
+				"has_errors": false,
+				"name": "ActiveDevices",
+				"status": 100,
+				"value": 2
 			},
 			"active_users": {
 				"fill_percent": 0,

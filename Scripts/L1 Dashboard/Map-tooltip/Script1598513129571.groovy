@@ -44,7 +44,7 @@ String Gateway_value = result.data_points[0].active_gateways.value
 
 //WebUI.verifyMatchl(WebUI.getText(findTestObject('Map tooltip objects/Map-Gateways')), Gateway_value , true)
 
-if(WebUI.verifyMatch(Gateway_value, WebUI.getText(findTestObject('Map tooltip objects/Map-Gateways')), false))
+if(Gateway_value ==  WebUI.getText(findTestObject('Map tooltip objects/Map-Gateways')))
 {
 	
 	println("Gateway value from Web is : " +WebUI.getText(findTestObject('Map tooltip objects/Map-Gateways'))+ " and Gateway value JSON is : "+ Gateway_value +" thus, it is correct")
@@ -54,7 +54,7 @@ if(WebUI.verifyMatch(Gateway_value, WebUI.getText(findTestObject('Map tooltip ob
 else {
 	
 	
-	print('Values are not matched')
+	println("Gateway value from Web is : " +WebUI.getText(findTestObject('Map tooltip objects/Map-Gateways'))+ " and Gateway value JSON is : "+ Gateway_value +" thus, it is incorrect")
 }
 
 // FOR USERS
@@ -69,7 +69,7 @@ WebUI.getText(findTestObject('Map tooltip objects/Map-Users'))
 
 String User_value = result.data_points[0].active_users.value
 
-if(WebUI.verifyMatch(User_value, WebUI.getText(findTestObject('Map tooltip objects/Map-Users')), false))
+if(User_value ==  WebUI.getText(findTestObject('Map tooltip objects/Map-Users')))
 {
 	
 	print ('User value from web is : '   +WebUI.getText(findTestObject('Map tooltip objects/Map-Users')) + ' User value from json is : ' + User_value + 'thus values are matched')
@@ -79,7 +79,7 @@ if(WebUI.verifyMatch(User_value, WebUI.getText(findTestObject('Map tooltip objec
 else {
 	
 	
-	print('Values are not matched')
+	print ('User value from web is : '   +WebUI.getText(findTestObject('Map tooltip objects/Map-Users')) + ' User value from json is : ' + User_value + 'thus values are not matched')
 }
 
 //DEVICES
@@ -90,7 +90,7 @@ WebUI.getText(findTestObject('Map tooltip objects/Map-Devices'))
 
 String Device_value = result.data_points[0].active_devices.value
 
-if(WebUI.verifyMatch(Device_value, WebUI.getText(findTestObject('Map tooltip objects/Map-Devices')), false))
+if(Device_value == WebUI.getText(findTestObject('Map tooltip objects/Map-Devices')))
 {
 	
 	print ('Device value from web is : '   +WebUI.getText(findTestObject('Map tooltip objects/Map-Devices')) + ' Device value from json is : ' + Device_value + 'thus values are matched')
@@ -100,7 +100,7 @@ if(WebUI.verifyMatch(Device_value, WebUI.getText(findTestObject('Map tooltip obj
 else {
 	
 	
-	print('Values are not matched')
+	print ('Device value from web is : '   +WebUI.getText(findTestObject('Map tooltip objects/Map-Devices')) + ' Device value from json is : ' + Device_value + 'thus values are  not matched')
 }
 
 
@@ -112,7 +112,7 @@ WebUI.getText(findTestObject('Map tooltip objects/Map-non_compliance'))
 
 String Non_compliance_value = result.data_points[0].non_compliance_count.value
 
-if(WebUI.verifyMatch(Non_compliance_value, WebUI.getText(findTestObject('Map tooltip objects/Map-non_compliance')), false))
+if(Non_compliance_value == WebUI.getText(findTestObject('Map tooltip objects/Map-non_compliance')))
 {
 	
 	print ('Non-compliance value from web is : '   +WebUI.getText(findTestObject('Map tooltip objects/Map-non_compliance')) + ' Non-compliance value from json is : ' + Non_compliance_value + 'thus values are matched')
@@ -122,7 +122,7 @@ if(WebUI.verifyMatch(Non_compliance_value, WebUI.getText(findTestObject('Map too
 else {
 	
 	
-	print('Values are not matched')
+	print ('Non-compliance value from web is : '   +WebUI.getText(findTestObject('Map tooltip objects/Map-non_compliance')) + ' Non-compliance value from json is : ' + Non_compliance_value + 'thus values are not matched')
 }
 
 //Critical errors
@@ -132,7 +132,7 @@ WebUI.getText(findTestObject('Map tooltip objects/Map-critical_errors'))
 
 String critical_error_value = result.data_points[0].critical_errors.value
 
-if(WebUI.verifyMatch(critical_error_value, WebUI.getText(findTestObject('Map tooltip objects/Map-critical_errors')), false))
+if(critical_error_value == WebUI.getText(findTestObject('Map tooltip objects/Map-critical_errors')))
 {
 	
 	print ('critical_value value from web is : '   +WebUI.getText(findTestObject('Map tooltip objects/Map-critical_errors')) + ' critical_error_value from json is : ' + critical_error_value + 'thus values are matched')
@@ -142,7 +142,7 @@ if(WebUI.verifyMatch(critical_error_value, WebUI.getText(findTestObject('Map too
 else {
 	
 	
-	print('Values are not matched')
+	print ('critical_value value from web is : '   +WebUI.getText(findTestObject('Map tooltip objects/Map-critical_errors')) + ' critical_error_value from json is : ' + critical_error_value + 'thus values are not matched')
 }
 
 // Applications
@@ -153,7 +153,7 @@ WebUI.getText(findTestObject('Map tooltip objects/Map-applications'))
 
 String application_value = result.data_points[0].active_applications.value
 
-if(WebUI.verifyMatch(application_value, WebUI.getText(findTestObject('Map tooltip objects/Map-applications')), false))
+if(application_value == WebUI.getText(findTestObject('Map tooltip objects/Map-applications')))
 {
 	
 	print ('Application value from web is : '   +WebUI.getText(findTestObject('Map tooltip objects/Map-applications')) + ' Application value from json is : ' + application_value + 'thus values are matched')
@@ -163,5 +163,5 @@ if(WebUI.verifyMatch(application_value, WebUI.getText(findTestObject('Map toolti
 else {
 	
 	
-	print('Values are not matched')
+	print ('Application value from web is : '   +WebUI.getText(findTestObject('Map tooltip objects/Map-applications')) + ' Application value from json is : ' + application_value + 'thus values are not matched')
 }

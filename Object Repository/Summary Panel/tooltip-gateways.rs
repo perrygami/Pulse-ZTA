@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Set filter</name>
+   <name>tooltip-gateways</name>
    <tag></tag>
-   <elementGuidId>57130006-e3c6-4208-87a3-e104d3b2eea5</elementGuidId>
+   <elementGuidId>dc738285-990a-4a4c-bda6-111bc8ff1e74</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>/html/body/div[18]/div/div/div/ul/li[1]/span
-</value>
+         <value>#dashboard-summary__container > div:nth-child(1) > div > div.custom-compact-summary-card__flex-row.bottomRow > span > span</value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>/html/body/div[13]/div/div/div/ul/li[1]/span</value>
+         <value>//*[@id=&quot;dashboard-summary__container&quot;]/div[1]/div/div[2]/span/span/text()</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
