@@ -29,9 +29,9 @@ WebUI.maximizeWindow()
 
 WebUI.navigateToUrl(GlobalVariable.URL)
 
-WebUI.setText(findTestObject('Login objects/input_Username_username'), GlobalVariable.username)
+WebUI.setText(findTestObject('Login objects/input_Username_username'), GlobalVariable.UserAdmin)
 
-WebUI.setText(findTestObject('Login objects/input_Password_password'), GlobalVariable.password)
+WebUI.setText(findTestObject('Login objects/input_Password_password'), GlobalVariable.UserPass)
 
 WebUI.sendKeys(findTestObject('Login objects/input_Password_password'), Keys.chord(Keys.ENTER))
 
@@ -50,7 +50,7 @@ def result = slurper.parse(jsontxt)
 try {
     ArrayList<String> tooltip = new ArrayList<String>()
 
-    ArrayList<String> appName = new ArrayList<String>()
+    ArrayList<String> gatewayName = new ArrayList<String>()
 
     ArrayList<String> JSON_Name = new ArrayList<String>()
 
@@ -61,47 +61,53 @@ try {
 
         (JSON_Value[i]) = result[i].value
 
-        String css1 = ('#dashboard-radar-gateway-health > div:nth-child(2) > svg > g > g.amcharts-Container > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Chart-group.amcharts-SerialChart-group.amcharts-XYChart-group.amcharts-RadarChart-group > g > g > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g.amcharts-Container > g:nth-child(1) > g > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Axis-group.amcharts-CategoryAxis-group > g > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-AxisRenderer-group.amcharts-AxisRendererCircular-group > g > g:nth-child(' + 
-        (i + 4)) + ') > g > text > tspan'
+        String topGatewaysValueCSS = ('#dashboard-radar-gateway-health > div:nth-child(2) > svg > g > g.amcharts-Container > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Chart-group.amcharts-SerialChart-group.amcharts-XYChart-group.amcharts-RadarChart-group > g > g > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g.amcharts-Container > g:nth-child(1) > g > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Axis-group.amcharts-CategoryAxis-group > g > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-AxisRenderer-group.amcharts-AxisRendererCircular-group > g > g:nth-child(' + 
+        (i + 3)) + ') > g > text > tspan'
 
-        myTestOject1 = new TestObject('customObject')
+        topGateways_Value = new TestObject('customObject')
 
-        myTestOject1.addProperty('css', ConditionType.EQUALS, css1)
+        topGateways_Value.addProperty('css', ConditionType.EQUALS, topGatewaysValueCSS)
 
-        (appName[i]) = WebUI.getText(myTestOject1)
+        (gatewayName[i]) = WebUI.getText(topGateways_Value)
 
-        WebUI.delay(2)
-
-        String css = ('#dashboard-radar-gateway-health > div:nth-child(2) > svg > g > g.amcharts-Container > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Chart-group.amcharts-SerialChart-group.amcharts-XYChart-group.amcharts-RadarChart-group > g > g > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g.amcharts-Container > g:nth-child(1) > g > g:nth-child(1) > g > g > g > g > g > g > g > g:nth-child(' + 
+        String topGatewaysTooltipCSS = ('#dashboard-radar-gateway-health > div:nth-child(2) > svg > g > g.amcharts-Container > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Chart-group.amcharts-SerialChart-group.amcharts-XYChart-group.amcharts-RadarChart-group > g > g > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g.amcharts-Container > g:nth-child(1) > g > g:nth-child(1) > g > g > g > g > g > g > g > g:nth-child(' + 
         (i + 1)) + ') > g > g > g > g > path'
 
-        myTestOject = new TestObject('customObject')
+        mouseHover_Gateway = new TestObject('customObject')
 
-        myTestOject.addProperty('css', ConditionType.EQUALS, css)
+        mouseHover_Gateway.addProperty('css', ConditionType.EQUALS, topGatewaysTooltipCSS)
 
-        WebUI.mouseOver(myTestOject)
-
-        WebUI.delay(2)
+        WebUI.mouseOver(mouseHover_Gateway)
 
         try {
-            Tooltip = new TestObject('customObject')
+            topGateways_Tooltip = new TestObject('customObject')
 
-            Tooltip.addProperty('css', ConditionType.EQUALS, '#dashboard-radar-gateway-health > div:nth-child(2) > svg > g > g.amcharts-Container > g:nth-child(2) > g > g:nth-child(5) > g.amcharts-Container.amcharts-Tooltip > g > g > text > tspan')
+            topGateways_Tooltip.addProperty('css', ConditionType.EQUALS, '#dashboard-radar-gateway-health > div:nth-child(2) > svg > g > g.amcharts-Container > g:nth-child(2) > g > g:nth-child(5) > g.amcharts-Container.amcharts-Tooltip > g > g > text > tspan')
 
-            (tooltip[i]) = WebUI.getText(Tooltip)
-
-            WebUI.verifyEqual(tooltip[i], JSON_Value[i])
-
-            WebUI.verifyEqual(appName[i], JSON_Name[i])
+            (tooltip[i]) = WebUI.getText(topGateways_Tooltip)
         }
         catch (Exception e) {
             e.print('No tooltip found')
         } 
     }
     
+    for (j = 0; j < result.size(); j++) {
+        for (k = 0; k < result.size(); k++) {
+            if ((JSON_Name[j]) == (gatewayName[k])) {
+                if (WebUI.verifyEqual(tooltip[j], JSON_Value[k])) {
+                    print((((((('values from json and UI are matched ' + (JSON_Name[j])) + ' ') + (gatewayName[k])) + ' ') + 
+                        (tooltip[j])) + ' ') + (JSON_Value[k]))
+                } else {
+                }
+                //print('values from json and UI are not matched')
+            } else {
+            }
+        }
+    }
+    
     print(tooltip)
 
-    print(appName)
+    print(gatewayName)
 
     print(JSON_Value)
 
@@ -110,6 +116,10 @@ try {
 catch (Exception e) {
     e.print('test end')
 } 
+
+CustomKeywords.'custom_keyword.Applitools.Custom_capture'(1440, 800)
+
+CustomKeywords.'custom_keyword.Applitools.Custom_capture'(1920, 800)
 
 WebUI.closeBrowser()
 

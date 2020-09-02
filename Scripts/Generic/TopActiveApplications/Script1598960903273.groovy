@@ -29,18 +29,29 @@ WebUI.maximizeWindow()
 
 WebUI.navigateToUrl(GlobalVariable.URL)
 
-WebUI.setText(findTestObject('Login objects/username'), GlobalVariable.username)
+WebUI.setText(findTestObject('Login objects/input_Username_username'), GlobalVariable.UserAdmin)
 
-WebUI.setText(findTestObject('Login objects/password'), GlobalVariable.password)
+WebUI.setText(findTestObject('Login objects/input_Password_password'), GlobalVariable.UserPass)
 
-WebUI.sendKeys(findTestObject('Login objects/singin button'), Keys.chord(Keys.ENTER))
+WebUI.sendKeys(findTestObject('Login objects/input_Password_password'), Keys.chord(Keys.ENTER))
 
 WebUI.delay(3)
 
-CustomKeywords.'custom_keyword.keywords.apply_filter'()
+WebUI.click(findTestObject('Filter object/filter_button'))
+
+WebUI.click(findTestObject('Filter object/set_filter'))
+
+WebUI.click(findTestObject('Filter object/down_arrow'))
+
+WebUI.click(findTestObject('Filter object/Custom_filter'))
+
+WebUI.click(findTestObject('Filter object/Custom_Aug'))
+
+WebUI.click(findTestObject('Filter object/Custom_Aug_27'))
+
+WebUI.click(findTestObject('Filter object/Apply filter'))
 
 WebUI.scrollToElement(findTestObject('Filter object/ScrollToApplications'), 2)
-
 
 def slurper = new JsonSlurper()
 
@@ -55,12 +66,14 @@ try {
 
     ArrayList<String> JSON_Name = new ArrayList<String>()
 
-   ArrayList<String> JSON_Value = new ArrayList<String>()
+    ArrayList<String> JSON_Value = new ArrayList<String>()
 
     for (int i = 0; i < result.size(); i++) {
-     //   (JSON_Name[i]) = result[i].name
+        print(result.size)
 
-    //    (JSON_Value[i]) = result[i].value
+        (JSON_Name[i]) = result[i].name
+
+        (JSON_Value[i]) = result[i].value
 
         String css1 = ('#dashboard-radar-apps-accessed > div:nth-child(2) > svg > g > g.amcharts-Container > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Chart-group.amcharts-SerialChart-group.amcharts-XYChart-group.amcharts-RadarChart-group > g > g > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g.amcharts-Container > g:nth-child(1) > g > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Axis-group.amcharts-CategoryAxis-group > g > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-AxisRenderer-group.amcharts-AxisRendererCircular-group > g > g:nth-child(' + 
         (i + 4)) + ') > g > text > tspan'
@@ -71,7 +84,6 @@ try {
 
         (appName[i]) = WebUI.getText(myTestOject1)
 
-		//if(appName[i] == )
         // WebUI.delay(2)
         String css = ('#dashboard-radar-apps-accessed > div:nth-child(2) > svg > g > g.amcharts-Container > g.amcharts-Sprite-group.amcharts-Container-group.amcharts-Component-group.amcharts-Chart-group.amcharts-SerialChart-group.amcharts-XYChart-group.amcharts-RadarChart-group > g > g > g > g > g > g:nth-child(1) > g > g:nth-child(1) > g.amcharts-Container > g:nth-child(1) > g > g:nth-child(1) > g > g > g > g > g > g > g > g:nth-child(' + 
         (i + 1)) + ') > g > g > g > g > path'
@@ -88,11 +100,9 @@ try {
 
             Tooltip.addProperty('css', ConditionType.EQUALS, '#dashboard-radar-apps-accessed > div:nth-child(2) > svg > g > g.amcharts-Container > g:nth-child(2) > g > g:nth-child(5) > g.amcharts-Container.amcharts-Tooltip > g > g > text > tspan')
 
-            (tooltip[i]) = WebUI.getText(Tooltip)
-
-            WebUI.verifyEqual(tooltip[i], JSON_Value[i])
-
-            WebUI.verifyEqual(appName[i], JSON_Name[i])
+            (tooltip[i]) = WebUI.getText(Tooltip //            WebUI.verifyEqual(tooltip[i], JSON_Value[i])
+                ) //
+            //            WebUI.verifyEqual(appName[i], JSON_Name[i])
         }
         catch (Exception e) {
             e.print('No tooltip found')
@@ -103,7 +113,7 @@ try {
 
     print(appName)
 
-	
+    print(JSON_Value)
 
     print(JSON_Name)
 }
