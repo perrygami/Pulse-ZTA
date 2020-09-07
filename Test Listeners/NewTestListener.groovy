@@ -1,8 +1,7 @@
-//import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
-//import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
-//import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
-//import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-//
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
+import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
 //import com.applitools.eyes.BatchInfo
 //import com.applitools.eyes.RectangleSize
@@ -11,14 +10,13 @@
 //import com.applitools.eyes.config.Configuration
 //import com.applitools.eyes.selenium.ClassicRunner
 //import com.applitools.eyes.selenium.Eyes
-
-////import com.applitools.eyes.BatchInfo
-////import com.applitools.eyes.RectangleSize
-////import com.applitools.eyes.TestResultContainer
-////import com.applitools.eyes.TestResultsSummary
-////import com.applitools.eyes.config.Configuration
-////import com.applitools.eyes.selenium.ClassicRunner
-////import com.applitools.eyes.selenium.Eyes
+//import com.applitools.eyes.BatchInfo
+//import com.applitools.eyes.RectangleSize
+//import com.applitools.eyes.TestResultContainer
+//import com.applitools.eyes.TestResultsSummary
+//import com.applitools.eyes.config.Configuration
+//import com.applitools.eyes.selenium.ClassicRunner
+//import com.applitools.eyes.selenium.Eyes
 
 //import org.openqa.selenium.chrome.ChromeDriver
 //import org.testng.ITestContext
@@ -38,12 +36,12 @@
 //
 //import internal.GlobalVariable as GlobalVariable
 //
-//import com.kms.katalon.core.annotation.BeforeTestCase
-//import com.kms.katalon.core.annotation.BeforeTestSuite
-//import com.kms.katalon.core.annotation.AfterTestCase
-//import com.kms.katalon.core.annotation.AfterTestSuite
-//import com.kms.katalon.core.context.TestCaseContext
-//import com.kms.katalon.core.context.TestSuiteContext
+import com.kms.katalon.core.annotation.BeforeTestCase
+import com.kms.katalon.core.annotation.BeforeTestSuite
+import com.kms.katalon.core.annotation.AfterTestCase
+import com.kms.katalon.core.annotation.AfterTestSuite
+import com.kms.katalon.core.context.TestCaseContext
+import com.kms.katalon.core.context.TestSuiteContext
 //
 //class NewTestListener {
 //	/**
@@ -62,21 +60,21 @@
 //		
 //	}
 //	
-//	@BeforeTestCase
-//	def sampleBeforeTestCase(TestCaseContext testCaseContext) {
-//		println testCaseContext.getTestCaseId()
-//		println testCaseContext.getTestCaseVariables()
-//	}
+	@BeforeTestCase
+	def sampleBeforeTestCase(TestCaseContext testCaseContext) {
+		println testCaseContext.getTestCaseId()
+		println testCaseContext.getTestCaseVariables()
+	}
 //
 //	/**
 //	 * Executes after every test case ends.
 //	 * @param testCaseContext related information of the executed test case.
 //	 */
-//	@AfterTestCase
-//	def sampleAfterTestCase(TestCaseContext testCaseContext) {
-//		println testCaseContext.getTestCaseId()
-//		println testCaseContext.getTestCaseStatus()
-//	}
+	@AfterTestCase
+	def sampleAfterTestCase(TestCaseContext testCaseContext) {
+		println testCaseContext.getTestCaseId()
+		println testCaseContext.getTestCaseStatus()
+	}
 //
 //	/**
 //	 * Executes before every test suite starts.

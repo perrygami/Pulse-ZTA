@@ -83,19 +83,37 @@ try {
         } 
     }
 	
+//	for (j = 0; j < result.size(); j++) {
+//		for (k = 0; k < result.size(); k++) {
+//			if ((JSON_Name[j]) == (appName[k])) {
+//				if (WebUI.verifyEqual(tooltip[j], JSON_Value[k])) {
+//					print('values from json and UI are matched ' + JSON_Name[j] +' '+ appName[k] +' '+ JSON_Value[k] + ' '+tooltip[j])
+//				} else {
+//					
+//				}
+//			}else {
+//			//print('values from json and UI are not matched')
+//				}
+//		}
+//	}
+	
+	
 	for (j = 0; j < result.size(); j++) {
-		for (k = 0; k < result.size(); k++) {
-			if ((JSON_Name[j]) == (appName[k])) {
-				if (WebUI.verifyEqual(tooltip[j], JSON_Value[k])) {
-					print('values from json and UI are matched ' + JSON_Name[j] +' '+ appName[k] +' '+ JSON_Value[k] + ' '+tooltip[j])
+	
+			if (JSON_Name.contains(appName[j])) {
+				def index = JSON_Name.indexOf(appName[j])
+				print(index)
+				if (WebUI.verifyEqual(tooltip[j], JSON_Value[index])) {
+					println('true')
 				} else {
 					
 				}
 			}else {
-			//print('values from json and UI are not matched')
+			println('false')
 				}
-		}
+		
 	}
+	
     print(tooltip)
     print(appName)
     print(JSON_Value)

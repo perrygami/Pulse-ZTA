@@ -37,7 +37,7 @@ WebUI.sendKeys(findTestObject('Login objects/input_Password_password'), Keys.cho
 
 WebUI.delay(2)
 
-CustomKeywords.'custom_keyword.keywords.apply_filter'()
+CustomKeywords.'custom_keyword.keywords.apply_CurrentDayfilter'()
 
 WebUI.scrollToElement(findTestObject('Filter object/ScrollTopGateways'), 2)
 
@@ -96,10 +96,9 @@ try {
             if ((JSON_Name[j]) == (gatewayName[k])) {
                 if (WebUI.verifyEqual(tooltip[j], JSON_Value[k])) {
                     print((((((('values from json and UI are matched ' + (JSON_Name[j])) + ' ') + (gatewayName[k])) + ' ') + 
-                        (tooltip[j])) + ' ') + (JSON_Value[k]))
+                        (tooltip[j])) + ' ') + (JSON_Value[k])) //print('values from json and UI are not matched')
                 } else {
                 }
-                //print('values from json and UI are not matched')
             } else {
             }
         }
@@ -116,8 +115,6 @@ try {
 catch (Exception e) {
     e.print('test end')
 } 
-
-CustomKeywords.'custom_keyword.Applitools.Custom_capture'(1440, 800)
 
 CustomKeywords.'custom_keyword.Applitools.Custom_capture'(1920, 800)
 

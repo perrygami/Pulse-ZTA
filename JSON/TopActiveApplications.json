@@ -1,18 +1,22 @@
 [
 	{
-		"name": "splunk",
-		"value": 1
-	},
-	{
 		"name": "amazon",
+		"value": 2
+	},
+	{
+		"name": "zoom",
 		"value": 1
 	},
 	{
-		"name": "dropbox",
+		"name": "zulip",
 		"value": 1
 	},
 	{
-		"name": "ssh",
+		"name": "slack",
+		"value": 1
+	},
+	{
+		"name": "atlassian",
 		"value": 1
 	}
 ]

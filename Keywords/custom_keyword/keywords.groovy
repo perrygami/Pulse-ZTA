@@ -212,15 +212,15 @@ public class keywords {
 
 	@Keyword
 	def apply_CurrentDayfilter(){
-	
-			WebUI.click(findTestObject('Filter object/filter_button'))
-			WebUI.click(findTestObject('Filter object/set_filter'))
-			WebUI.click(findTestObject('Filter object/down_arrow'))
-			WebUI.click(findTestObject('Filter object/current_day'))
-			WebUI.click(findTestObject('Filter object/Apply filter'))
-	
-	
-		}
+
+		WebUI.click(findTestObject('Filter object/filter_button'))
+		WebUI.click(findTestObject('Filter object/set_filter'))
+		WebUI.click(findTestObject('Filter object/down_arrow'))
+		WebUI.click(findTestObject('Filter object/current_day'))
+		WebUI.click(findTestObject('Filter object/Apply filter'))
+
+
+	}
 	@Keyword
 
 	def active_applications(){
